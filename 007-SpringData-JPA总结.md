@@ -171,3 +171,64 @@ public void testFind() {
 
 ![image-20200730173448819](assets/image-20200730173448819.png)
 
+另外还可以使用getReference()进行数据的查询，效果与 find()保持一致。
+
+不同的是getReference()的是使用懒加载的机制，只有在数据结果使用的才会给结果赋值。
+
+### 更新功能
+
+~~~java
+更新使用entityManager.mearge() 这个 API 即可。
+~~~
+
+### 删除功能
+
+~~~
+更新使用entityManager.remove() 这个 API 即可。
+~~~
+
+### JPQL-查询全部
+
+~~~java
+// from User 即未 jpql  等于  select * from user;
+String sql = "from User";
+Query query = entityManager.createQuery(sql);
+List list  = query.getResultList();
+~~~
+
+### JPQL-排序序
+
+~~~java
+// from User order by id 即未 jpql  等于  select * from user order by id; 此处 ID 需要和 User 的中字段保持一致
+String sql = "from User order by id";
+~~~
+
+### JPQL-统计
+
+~~~java
+String sql = "select count(id) from User";
+~~~
+
+### JPQL-分页
+
+~~~java
+// 表示从0开始最多查询两条数据
+String sql = "from User";
+Query query = entityManager.createQuery(sql);
+query.setFristResult(0);
+query.setMaxResult(2);
+List list  = query.getResultList();
+~~~
+
+### JPQL-条件查询
+
+~~~java
+String sql = "from User where name like  ?";
+Query query = entityManager.createQuery(sql);
+// 占位符  从1开始
+query.setParameter(1,"gjf")
+query.setFristResult(0);
+query.setMaxResult(2);
+List list  = query.getResultList();
+~~~
+
