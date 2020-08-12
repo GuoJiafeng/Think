@@ -20,6 +20,7 @@
 
 （7）每个 Worker NIOEventLoop 循环执行的步骤
 
+
 + 轮询 read write 事件
 + 处理 io 事件，即 read write 事件，在对应的 NioSocketChannel处理
 + 处理任务队列的任务
