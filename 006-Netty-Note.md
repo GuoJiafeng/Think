@@ -386,27 +386,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 ### server
 
 ~~~
-package networkprograming.websocket;
 
-import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.stream.ChunkedWriteHandler;
-
-/**
- * @author v_guojiafeng
- * @time 2020/8/20 4:11 下午
- * @info
- */
 public class WSServer {
     public static void main(String[] args) {
         NioEventLoopGroup boosGroup = new NioEventLoopGroup();
@@ -451,19 +431,7 @@ public class WSServer {
 ~~~
 
 ~~~
-package networkprograming.websocket;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-
-import java.time.LocalDateTime;
-
-/**
- * @author v_guojiafeng
- * @time 2020/8/20 4:16 下午
- * @info
- */
 public class WSServerHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     @Override
     protected void channelRead0(ChannelHandlerContext context, TextWebSocketFrame msg) throws Exception {
