@@ -116,3 +116,39 @@ public int lengthOfLastWord(String s) {
 
 ![1597235921542](assets/1597235921542.png)
 
+
+
+# [ x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
+
+```
+实现 int sqrt(int x) 函数。
+计算并返回 x 的平方根，其中 x 是非负整数。
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+```
+
+## 代码
+
+~~~
+ public  int mySqrt(int x) {
+        long a = 1;
+        do {
+
+            a = (x / a + a) / 2;
+
+           if ((a * a) <= x && (a + 1) * (a + 1) >= x) break;
+
+        } while (true);
+        return (int)a;
+    }
+~~~
+
+## 解法
+
+因为精度这里只要到int即可，计算机会丢失精度，所以只要判断 a的平方和 a+1 的平方是不是到了这个这个范围即可。
+
+但是在写的过程中，一开始用的是`int` 定义 `a` ，数值范围(46341时就是负数了)不够导致判断语句不准确出现无限循环，所以这里用`long`定义 `a`。
+
+2020年10月20日22:23:46
+
+
+
