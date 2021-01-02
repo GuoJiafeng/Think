@@ -18,7 +18,8 @@ echo "##   @author guojiafeng        ##"
 echo "##   @info   提交到Github       ##"
 echo "##			     			 ##"
 echo "#################################"
-
+git config  user.email "iamgjf@qq.com"
+git config  user.name "GuoJiafeng"
 
 msg=$1
 pull_msg=$2
